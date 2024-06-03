@@ -10,7 +10,7 @@ dir_list="${date}-directories"
 echo "dir_path" > "$dir_list"
 
 # YYYY/YYYY-MM-DD style archive directories
-find ../peter -mindepth 2 -maxdepth 2 -type d | cut -c4- >> "$dir_list"
+find -L ../peter -mindepth 2 -maxdepth 2 -type d | cut -c4- >> "$dir_list"
 find ../bence -mindepth 2 -maxdepth 2 -type d | cut -c4- >> "$dir_list"
 find ../tenepi -mindepth 2 -maxdepth 2 -type d | cut -c4- >> "$dir_list"
 find ../andi/ -mindepth 2 -maxdepth 2 -type d | cut -c4-  >> "$dir_list"
@@ -29,6 +29,7 @@ find ../bachorecz/ -mindepth 1 -maxdepth 1 -type d | cut -c4- >> "$dir_list"
 find ../gesztenye/ -mindepth 1 -maxdepth 1 -type d | cut -c4- >> "$dir_list"
 find ../gyerekrajzok/ -mindepth 1 -maxdepth 1 -type d | cut -c4- >> "$dir_list"
 find ../friends/ -mindepth 1 -maxdepth 1 -type d | cut -c4- >> "$dir_list"
+find ../mehesz_csalad/ -mindepth 1 -maxdepth 1 -type d | cut -c4- >> "$dir_list"
 find ../art/ -mindepth 1 -maxdepth 1 -type d | cut -c4- >> "$dir_list"
 
 # import directories to staging table

@@ -46,7 +46,7 @@ archive_file="$(mktemp)"
 # https://news.ycombinator.com/item?id=21959517
 # https://linuxconfig.org/how-to-create-compressed-encrypted-archives-with-tar-and-gpg
 # https://linuxnightly.com/how-to-use-zstandard-compression-on-linux-with-commands/
-tar --preserve-permissions -I 'zstd -16' -cf - "../$dir" | gpg --batch --yes -c --passphrase "$password" --cipher-algo AES256 > "$archive_file"
+tar --dereference --preserve-permissions -I 'zstd -16' -cf - "../$dir" | gpg --batch --yes -c --passphrase "$password" --cipher-algo AES256 > "$archive_file"
 
 size="$(du -b "$archive_file" | cut -f1 -d$'\t')"
 md5sum="$(md5sum "$archive_file" | cut -f1 -d ' ')"
